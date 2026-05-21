@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIRT MONEY — Media Kit 2026</title>
+  <meta name="description" content="DIRT MONEY media kit — partnership & sponsorship information." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #080808;
+      --card: #111111;
+      --border: #1e1e1e;
+      --accent: #d4ff00;
+      --accent-dim: #a8cc00;
+      --white: #f0f0f0;
+      --grey: #888888;
+      --bebas: 'Bebas Neue', sans-serif;
+      --barlow: 'Barlow Condensed', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--barlow);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PASSWORD GATE ── */
+    #gate {
+      position: fixed; inset: 0;
+      background: var(--black);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 9999;
+      gap: 24px;
+    }
+    #gate h2 {
+      font-family: var(--bebas);
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+    #gate p { color: var(--grey); font-size: 1rem; letter-spacing: 0.05em; }
+    #gate-form { display: flex; gap: 0; }
+    #gate-input {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-right: none;
+      color: var(--white);
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      padding: 12px 20px;
+      letter-spacing: 0.2em;
+      width: 200px;
+      outline: none;
+      text-transform: uppercase;
+    }
+    #gate-input:focus { border-color: var(--accent); }
+    #gate-btn {
+      background: var(--accent);
+      color: var(--black);
+      border: none;
+      font-family: var(--bebas);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      padding: 12px 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #gate-btn:hover { background: var(--accent-dim); }
+    #gate-error { color: #ff4444; font-size: 0.85rem; display: none; }
+    #gate-error.show { display: block; }
+    #content { display: none; }
+    body.unlocked #gate { display: none; }
+    body.unlocked #content { display: block; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8,8,8,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5vw;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--bebas);
+      font-size: 1.4rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      color: var(--grey);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    @media (max-width: 600px) { .nav-links { display: none; } }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 5vw; }
+    section:nth-child(even) { background: #0c0c0c; }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--bebas);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 92vh;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 80px 5vw;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0a0a0a 0%, #080808 100%);
+    }
+    .hero-accent-line {
+      position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--accent);
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image: 
+        linear-gradient(rgba(212,255,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,255,0,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: var(--bebas);
+      font-size: clamp(4rem, 14vw, 11rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .hero-title span { color: var(--accent); }
+    .hero-tagline {
+      font-family: var(--barlow);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: var(--grey);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 48px;
+    }
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 40px;
+      margin-bottom: 48px;
+    }
+    .stat-item { }
+    .stat-num {
+      font-family: var(--bebas);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--grey);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .hero-handle {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--grey);
+      letter-spacing: 0.1em;
+    }
+    .hero-handle span { color: var(--accent); }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-heading {
+      font-family: var(--bebas);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .about-heading span { color: var(--accent); }
+    .about-body {
+      font-size: 1.05rem;
+      color: #aaaaaa;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    .build-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 28px;
+    }
+    .build-card h3 {
+      font-family: var(--bebas);
+      font-size: 1.8rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .build-card p {
+      color: #aaaaaa;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .build-pill {
+      display: inline-block;
+      background: rgba(212,255,0,0.1);
+      border: 1px solid rgba(212,255,0,0.3);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      padding: 4px 10px;
+      margin-right: 6px;
+      margin-top: 8px;
+    }
+
+    /* ── AUDIENCE ── */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .aud-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px;
+    }
+    .aud-card h4 {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .aud-bar-item { margin-bottom: 14px; }
+    .aud-bar-label {
+      display: flex; justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .aud-bar-label span:last-child {
+      font-family: var(--mono);
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+    .aud-bar-track {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .aud-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .aud-big-stat {
+      font-family: var(--bebas);
+      font-size: 3.5rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .aud-big-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--grey);
+      letter-spacing: 0.15em;
+    }
+
+    /* ── FORMATS ── */
+    .formats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .format-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .format-card:hover { border-color: var(--accent); }
+    .format-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+    }
+    .format-title {
+      font-family: var(--bebas);
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+    .format-desc {
+      color: #888;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* ── RATE CARD ── */
+    .rate-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+    }
+    .rate-table th {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+    }
+    .rate-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .rate-table tr:hover td { background: rgba(212,255,0,0.03); }
+    .rate-table td:last-child {
+      font-family: var(--mono);
+      color: var(--accent);
+      font-size: 0.9rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .rate-note {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--grey);
+      margin-top: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── BRAND FIT ── */
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .fit-cat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 20px;
+    }
+    .fit-cat h4 {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+    }
+    .fit-cat ul { list-style: none; }
+    .fit-cat ul li {
+      font-size: 0.9rem;
+      color: #aaa;
+      padding: 3px 0;
+    }
+    .fit-cat ul li::before {
+      content: '—';
+      color: var(--accent);
+      margin-right: 8px;
+      font-family: var(--mono);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--accent) !important;
+    }
+    #contact .section-label { color: var(--black); opacity: 0.5; }
+    #contact h2 { color: var(--black); font-size: clamp(3rem, 8vw, 6rem); }
+    .contact-body { color: rgba(0,0,0,0.6); font-size: 1.05rem; margin: 16px 0 32px; }
+    .contact-email {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 2px;
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s;
+    }
+    .contact-email:hover { opacity: 0.7; }
+    .contact-meta {
+      margin-top: 48px;
+      display: flex; flex-wrap: wrap; gap: 32px;
+    }
+    .contact-meta-item { }
+    .contact-meta-item .label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: rgba(0,0,0,0.4);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .contact-meta-item .val {
+      font-size: 0.9rem;
+      color: rgba(0,0,0,0.75);
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #040404;
+      border-top: 1px solid var(--border);
+      padding: 32px 5vw;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    footer .logo { font-family: var(--bebas); color: var(--accent); letter-spacing: 0.1em; }
+    footer .copy { font-family: var(--mono); font-size: 0.65rem; color: var(--grey); letter-spacing: 0.1em; }
+
+    /* ── UTILS ── */
+    .accent { color: var(--accent); }
+    .divider { height: 1px; background: var(--border); margin: 40px 0; }
+  </style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="gate">
+  <div class="hero-eyebrow">DIRT MONEY — MEDIA KIT</div>
+  <h2>AUTHORISED ACCESS ONLY</h2>
+  <p>Enter access code to continue</p>
+  <form id="gate-form" onsubmit="return checkGate(event)">
+    <input id="gate-input" type="password" placeholder="••••••••" autocomplete="off" autofocus />
+    <button id="gate-btn" type="submit">ENTER</button>
+  </form>
+  <div id="gate-error" class="gate-error">Incorrect code. Try again.</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="content">
+
+<nav>
+  <a class="nav-logo" href="#hero">DIRT MONEY</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#audience">Audience</a>
+    <a href="#formats">Formats</a>
+    <a href="#rates">Rates</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-accent-line"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="container">
+    <div class="hero-eyebrow">Media Kit 2026 — Confidential</div>
+    <div class="hero-title">DIRT<br><span>MONEY</span></div>
+    <div class="hero-tagline">Few mates. Right tools. Absolute carnage.</div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">3M+</div>
+        <div class="stat-label">Views — Week 1</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">12%+</div>
+        <div class="stat-label">Engagement Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">84%</div>
+        <div class="stat-label">Male Audience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$0</div>
+        <div class="stat-label">Paid Promotion</div>
+      </div>
+    </div>
+    <div class="hero-handle">Instagram <span>@dirt.moneyco</span> &nbsp;·&nbsp; dirtmoney.ai</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">01 — About</div>
+        <div class="about-heading">Heavy<br>machines.<br><span>Real dirt.</span></div>
+        <p class="about-body">DIRT MONEY is a Western Australian content brand built around heavy earthmoving, broadacre farming, and machinery that gets pushed to the limit. Real operators. Real equipment. No studio sets.</p>
+        <p class="about-body">Founded by Jacob Turner — qualified heavy diesel mechanic and broadacre farmer — and Cam, with years of earthmoving experience between them. Everything you see is lived, not performed.</p>
+        <p class="about-body">The audience followed because they recognised the authenticity immediately. 3 million views in the first week, zero paid media.</p>
+      </div>
+      <div>
+        <div class="build-card">
+          <h3>The Build Series</h3>
+          <p>The hero project: a John Deere 9750 STS combine stripped back and rebuilt into something that has no right to move the way it does. Eight to ten episodes. Filmed on the Sunnydale farm in Western Australia.</p>
+          <p>The finale? A river crossing. Filmed after the series drops.</p>
+          <p>This is the content that launched the channel. Every brand on this build will be in front of an audience that actually understands what they're watching.</p>
+          <span class="build-pill">8–10 EPISODES</span>
+          <span class="build-pill">WA PRODUCTION</span>
+          <span class="build-pill">RIVER CROSSING FINALE</span>
+          <span class="build-pill">YOUTUBE + INSTAGRAM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="container">
+    <div class="section-label">02 — Audience</div>
+    <h2 style="font-size: clamp(2.5rem,6vw,4.5rem); margin-bottom: 8px;">People who<br>know the work.</h2>
+    <p style="color: #888; font-size: 1rem; max-width: 540px; margin-bottom: 0;">Tradies. Operators. Farmers. Equipment industry. These are buyers, not browsers.</p>
+
+    <div class="audience-grid">
+      <div class="aud-card">
+        <h4>Gender Split</h4>
+        <div class="aud-big-stat">84%</div>
+        <div class="aud-big-label">MALE</div>
+        <div style="margin-top: 24px;">
+          <div class="aud-bar-item">
+            <div class="aud-bar-label"><span>Male</span><span>84%</span></div>
+            <div class="aud-bar-track"><div class="aud-bar-fill" style="width:84%"></div></div>
+          </div>
+          <div class="aud-bar-item">
+            <div class="aud-bar-label"><span>Female</span><span>16%</span></div>
+            <div class="aud-bar-track"><div class="aud-bar-fill" style="width:16%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="aud-card">
+        <h4>Age Breakdown</h4>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>18–24</span><span>18%</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:18%"></div></div>
+        </div>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>25–34</span><span>38%</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:38%"></div></div>
+        </div>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>35–44</span><span>28%</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:28%"></div></div>
+        </div>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>45–54</span><span>12%</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:12%"></div></div>
+        </div>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>55+</span><span>4%</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:4%"></div></div>
+        </div>
+      </div>
+
+      <div class="aud-card">
+        <h4>Occupation Breakdown</h4>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>Tradies & operators</span><span>34%</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:34%"></div></div>
+        </div>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>Farmers & ag</span><span>22%</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:22%"></div></div>
+        </div>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>Equipment industry</span><span>18%</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:18%"></div></div>
+        </div>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>Mining & resources</span><span>14%</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:14%"></div></div>
+        </div>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>Other</span><span>12%</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:12%"></div></div>
+        </div>
+      </div>
+
+      <div class="aud-card">
+        <h4>Platform Focus</h4>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>Instagram</span><span>Primary</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="aud-bar-item">
+          <div class="aud-bar-label"><span>YouTube</span><span>Build Series</span></div>
+          <div class="aud-bar-track"><div class="aud-bar-fill" style="width:70%"></div></div>
+        </div>
+        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border);">
+          <div class="aud-big-stat" style="font-size: 2.2rem;">12%+</div>
+          <div class="aud-big-label">ENGAGEMENT RATE</div>
+          <div style="margin-top: 8px; font-size: 0.8rem; color: var(--grey);">Industry avg: 1.2–3%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section id="formats">
+  <div class="container">
+    <div class="section-label">03 — Content Formats</div>
+    <h2 style="font-size: clamp(2.5rem,6vw,4.5rem); margin-bottom: 8px;">Four ways<br>in.</h2>
+    <div class="formats-grid">
+      <div class="format-card">
+        <div class="format-num">01</div>
+        <div class="format-title">Build Series</div>
+        <div class="format-desc">Long-form episodic content following a full machine build. Deep integration, brand presence across multiple episodes. The highest-attention format on the channel. YouTube + Reels cuts.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-num">02</div>
+        <div class="format-title">Machine Tests</div>
+        <div class="format-desc">Real-world capability tests. Pushing equipment to find the limits. Product placement and integration opportunities for tools, lubricants, and equipment brands.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-num">03</div>
+        <div class="format-title">Day-in-the-Dirt</div>
+        <div class="format-desc">Raw, unscripted content from the farm and job site. High authenticity, strong engagement. Perfect for workwear, tools, and ag brands wanting a genuine placement.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-num">04</div>
+        <div class="format-title">Carnage Cuts</div>
+        <div class="format-desc">Short-form destruction content. Things breaking, being pushed, or doing what they're not supposed to do. Viral-optimised. Reel-first format. High reach, fast.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RATE CARD -->
+<section id="rates">
+  <div class="container">
+    <div class="section-label">04 — Rate Card</div>
+    <h2 style="font-size: clamp(2.5rem,6vw,4.5rem); margin-bottom: 8px;">Founding partner<br>rates. <span class="accent">For now.</span></h2>
+    <p style="color: #888; max-width: 540px; margin-bottom: 0; font-size: 1rem;">Channel is growing fast. These rates reflect where we are today, not where we'll be at 100K, 250K, or 500K. Rates are reviewed at each milestone.</p>
+
+    <table class="rate-table">
+      <thead>
+        <tr>
+          <th>Format</th>
+          <th>Description</th>
+          <th style="text-align:right;">Rate (AUD, ex GST)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Instagram Reel Integration</strong></td>
+          <td style="color:#888; font-size:0.9rem;">Brand integrated within existing content</td>
+          <td>$3,000 – $8,000</td>
+        </tr>
+        <tr>
+          <td><strong>Dedicated Sponsored Reel</strong></td>
+          <td style="color:#888; font-size:0.9rem;">Full reel built around brand/product</td>
+          <td>$8,000 – $18,000</td>
+        </tr>
+        <tr>
+          <td><strong>Multi-Post Campaign</strong></td>
+          <td style="color:#888; font-size:0.9rem;">3–5 posts across a campaign period</td>
+          <td>POA</td>
+        </tr>
+        <tr>
+          <td><strong>YouTube Mid-Roll Integration</strong></td>
+          <td style="color:#888; font-size:0.9rem;">Integrated placement within build series episode</td>
+          <td>$5,000 – $12,000</td>
+        </tr>
+        <tr>
+          <td><strong>Long-Term Brand Partnership</strong></td>
+          <td style="color:#888; font-size:0.9rem;">Ongoing presence across all formats</td>
+          <td>POA</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="rate-note">All rates ex GST. Rates subject to review at 100K / 250K / 500K / 1M followers. Exclusivity and category lock-out available — POA.</div>
+  </div>
+</section>
+
+<!-- BRAND FIT -->
+<section id="fit">
+  <div class="container">
+    <div class="section-label">05 — Brand Fit</div>
+    <h2 style="font-size: clamp(2.5rem,6vw,4rem); margin-bottom: 8px;">The right brands<br>for this audience.</h2>
+    <div class="fit-grid">
+      <div class="fit-cat">
+        <h4>Heavy Equipment</h4>
+        <ul>
+          <li>Caterpillar</li><li>Komatsu</li><li>Volvo CE</li><li>John Deere</li><li>Hitachi</li><li>Liebherr</li>
+        </ul>
+      </div>
+      <div class="fit-cat">
+        <h4>Lubricants & Fuel</h4>
+        <ul>
+          <li>Castrol</li><li>Shell Rimula</li><li>Mobil</li><li>Gulf Western</li><li>Penrite</li>
+        </ul>
+      </div>
+      <div class="fit-cat">
+        <h4>Workwear</h4>
+        <ul>
+          <li>Hard Yakka</li><li>King Gee</li><li>Carhartt</li><li>Blundstone</li><li>FXD</li>
+        </ul>
+      </div>
+      <div class="fit-cat">
+        <h4>Tools</h4>
+        <ul>
+          <li>Milwaukee</li><li>Makita</li><li>Snap-on</li><li>Stanley</li>
+        </ul>
+      </div>
+      <div class="fit-cat">
+        <h4>Equipment Finance</h4>
+        <ul>
+          <li>Macquarie</li><li>Westpac</li><li>CommBank</li>
+        </ul>
+      </div>
+      <div class="fit-cat">
+        <h4>Agriculture</h4>
+        <ul>
+          <li>Nufarm</li><li>Elders</li><li>BASF</li><li>Nutrien</li><li>Bayer Crop</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">06 — Get in Touch</div>
+    <h2>Let's build<br>something.</h2>
+    <p class="contact-body">Partnership enquiries, sponsorship proposals, and brand collaboration requests go here. We respond within 48 hours.</p>
+    <a href="mailto:brands@dirtmoney.ai" class="contact-email">brands@dirtmoney.ai</a>
+    <div class="contact-meta">
+      <div class="contact-meta-item">
+        <div class="label">Instagram</div>
+        <div class="val">@dirt.moneyco</div>
+      </div>
+      <div class="contact-meta-item">
+        <div class="label">Website</div>
+        <div class="val">dirtmoney.ai</div>
+      </div>
+      <div class="contact-meta-item">
+        <div class="label">Entity</div>
+        <div class="val">Dirt Money Co Pty Ltd</div>
+      </div>
+      <div class="contact-meta-item">
+        <div class="label">Location</div>
+        <div class="val">Western Australia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">DIRT MONEY</div>
+  <div class="copy">© 2026 DIRT MONEY CO PTY LTD &nbsp;·&nbsp; CONFIDENTIAL — NOT FOR DISTRIBUTION &nbsp;·&nbsp; kit.dirtmoney.ai</div>
+</footer>
+
+</div><!-- /content -->
+
+<script>
+  // Simple password gate
+  const PASS = 'CARNAGE';
+  function checkGate(e) {
+    e.preventDefault();
+    const val = document.getElementById('gate-input').value.trim().toUpperCase();
+    if (val === PASS) {
+      document.body.classList.add('unlocked');
+      sessionStorage.setItem('dm_unlocked', '1');
+    } else {
+      document.getElementById('gate-error').classList.add('show');
+      document.getElementById('gate-input').value = '';
+      document.getElementById('gate-input').focus();
+    }
+    return false;
+  }
+  // Stay unlocked for the session
+  if (sessionStorage.getItem('dm_unlocked') === '1') {
+    document.body.classList.add('unlocked');
+  }
+  // Allow Enter key
+  document.getElementById('gate-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkGate(e);
+  });
+</script>
+</body>
+</html>
